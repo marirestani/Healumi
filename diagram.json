@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "Mariana",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": 52.84, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 42.35,
+      "left": -124.8,
+      "rotate": 180,
+      "attrs": { "value": "470" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 99.2,
+      "left": -191.2,
+      "attrs": {}
+    },
+    { "type": "wokwi-neopixel", "id": "rgb2", "top": 44.5, "left": -173.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "ldr1:VCC", "orange", [ "h0" ] ],
+    [ "esp:GND.1", "ldr1:GND", "black", [ "h-19.05", "v-18.8" ] ],
+    [ "esp:34", "ldr1:AO", "blue", [ "h-57.45", "v87.1" ] ],
+    [ "esp:5V", "rgb2:VDD", "red", [ "h-9.45", "v-182.4", "h-220.8" ] ],
+    [ "esp:GND.2", "rgb2:VSS", "black", [ "v-38.4", "h-297.6", "v77.7" ] ],
+    [ "esp:13", "r1:1", "green", [ "h-38.25", "v-105.9" ] ],
+    [ "r1:2", "rgb2:DIN", "green", [ "v0" ] ]
+  ],
+  "wifi": {
+    "ssid": "Wokwi-GUEST",
+    "password": ""
+  }
+}
