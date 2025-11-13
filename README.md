@@ -45,4 +45,4 @@ O próprio ESP32 DevKitC atua como o módulo de comunicação, utilizando seu r�
 
 * **TCP/IP:** Protocolo de transporte que garante a entrega das mensagens MQTT e NTP pela internet.
 * **MQTT (Message Queuing Telemetry Transport):** Protocolo principal de comunicação IoT. O ESP32 atua como cliente, publicando dados do sensor e comandos de atuação no broker público `broker.hivemq.com`.
-* **NTP (Network Time Protocol):** Protocolo de aplicação usado para consultar pool.ntp.org e obter a hora exata para a lógica circadiana.
+* **NTP (Network Time Protocol):** Protocolo de aplicação usado para obter a hora exata para a lógica circadiana.
