@@ -10,7 +10,7 @@ O Healumi é composto pelo módulo sensor de luminosidade LDR KY-018, a placa mi
 **Funcionamento:**
 1.  O ESP32 se conecta ao Wi-Fi, inicializa o cliente NTP, e se conecta ao broker MQTT HiveMQ.
 2.  A cada 5 segundos, o ESP32 lê a hora atual (NTP) e a intensidade da luz ambiente (LDR).
-3.  O ESP32 publica o valor captado do sensor LDR no tópico healumi/sensor/ldr_value.
+3.  O ESP32 publica o valor captado do sensor LDR no tópico 'healumi/sensor/ldr_value'.
 4.  O ESP32 executa a lógica circadiana:
     - Se o ambiente estiver claro (ldrValue < 2500), ele envia o comando para desligar o LED.
     - Se o ambiente estiver escuro (ldrValue > 2500) e o período for diurno, ele envia o comando de luz fria.
