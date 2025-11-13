@@ -32,8 +32,5 @@
     [ "esp:13", "r1:1", "green", [ "h-38.25", "v-105.9" ] ],
     [ "r1:2", "rgb2:DIN", "green", [ "v0" ] ]
   ],
-  "wifi": {
-    "ssid": "Wokwi-GUEST",
-    "password": ""
-  }
+  "dependencies": {}
 }

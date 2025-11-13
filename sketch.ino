@@ -27,6 +27,8 @@ char msg[50];
 int ldrValue = 0;
 int currentHour = 0;
 
+unsigned long mqttStartTime = 0;
+
 void setup() {
   Serial.begin(115200);
   pinMode(LDR_PIN, INPUT);
@@ -57,6 +59,14 @@ void setup_wifi() {
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
+  if (mqttStartTime > 0) {
+    unsigned long latency = millis() - mqttStartTime;
+    Serial.print("Latência do Atuador: ");
+    Serial.print(latency);
+    Serial.println("ms ");
+    mqttStartTime = 0;
+  }
+  
   Serial.print("Mensagem recebida no tópico: ");
   Serial.println(topic);
 
@@ -150,6 +160,8 @@ void loop() {
 
     snprintf(msg, 50, "%d,%d,%d", target_r, target_g, target_b);
     
+    mqttStartTime = millis();
+
     client.publish(command_topic, msg);
     Serial.print("Publicado no tópico (Comando): ");
     Serial.println(command_topic);
